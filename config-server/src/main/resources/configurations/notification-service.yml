@@ -1,0 +1,37 @@
+spring:
+  data:
+    mongodb:
+      username: admin
+      password: password
+      host: localhost
+      port: 27017
+      database: notification
+      authentication-database: admin
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: paymentGroup,orderGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
+        spring.json.type.mapping: paymentConfirmation:com.example.ecommerce.kafka.payment.PaymentConfirmation,orderConfirmation:com.example.ecommerce.kafka.order.OrderConfirmation
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: sunnyphillips2003@gmail.com
+    password: ebzu jxkp rfrc hybn
+    properties:
+      mail:
+        smtp:
+          auth: true
+          trust: "*"
+          ssl:
+            enable: true
+          starttls:
+            enable: false
+    protocol: smtp
+
+server:
+  port: 8040

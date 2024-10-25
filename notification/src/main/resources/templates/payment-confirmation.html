@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            background-color: #f1f1f1;
+            color: #888;
+            text-align: center;
+            padding: 10px;
+        }
+        .content p {
+            font-size: 16px;
+        }
+        .highlight {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="header">
+        <h1>Payment Success</h1>
+    </div>
+    <div class="content">
+        <p>Dear <span class="highlight" th:text="${customerName}"></span>,</p>
+        <p>We have received your payment of <span class="highlight" th:text="${amount}"></span> for order reference <span class="highlight" th:text="${orderReference}"></span>.</p>
+        <p>Thank you for your purchase! Your order is now being processed.</p>
+    </div>
+    <div class="footer">
+        <p>© 2024 Phillips Company. All rights reserved.</p>
+    </div>
+</div>
+</body>
+</html>

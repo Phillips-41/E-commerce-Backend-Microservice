@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            background-color: #f1f1f1;
+            color: #888;
+            text-align: center;
+            padding: 10px;
+        }
+        .content p {
+            font-size: 16px;
+        }
+        .highlight {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .product-table th, .product-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .product-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="header">
+        <h1>Order Confirmation</h1>
+    </div>
+    <div class="content">
+        <p>Dear <span class="highlight" th:text="${customerName}"></span></p>
+        <p>Your order with reference <span class="highlight" th:text="${orderReference}"></span> has been confirmed. The total amount of <span class="highlight" th:text="${totalAmount}"></span> has been successfully processed.</p>
+        <p>Here are the details of your purchase:</p>
+        <table class="product-table">
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Loop through products -->
+            <tr th:each="product : ${products}">
+                <td th:text="${product.name}">Product Name</td>
+                <td th:text="${product.quantity}">1</td>
+                <td th:text="${product.price}">Price</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">
+        <p>© 2024 Phillips Company. All rights reserved.</p>
+    </div>
+</div>
+</body>
+</html>
